@@ -7,6 +7,14 @@ using Test
         @test B(0) === B(false)
         @test B(1) === B(true)
     end
+    @testset "conversion to `Base` types" begin
+        for x ∈ 0:1
+            for typ ∈ (Bool, Int)
+                @test typ(x)::typ === typ(B(typ(x)::typ)::B)
+                @test typ(x)::typ === convert(typ, B(typ(x)::typ)::B)
+            end
+        end
+    end
     @testset "`zero`, `one`" begin
         @test zero(B) === B(0)
         @test one(B) === B(1)
