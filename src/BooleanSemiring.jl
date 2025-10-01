@@ -38,6 +38,9 @@ module BooleanSemiring
     function Base.typemax(::Type{B})
         one(B)
     end
+    function Base.:(!)(b::B)
+        B(!(b.b))
+    end
     function Base.show(io::IO, b::B)
         show(io, B)
         print(io, '(')
