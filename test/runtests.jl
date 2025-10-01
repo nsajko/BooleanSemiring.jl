@@ -43,6 +43,20 @@ using Test
             end
         end
     end
+    @testset "order" begin
+        for l ∈ 0:1
+            for r ∈ 0:1
+                @test (l < r) === (B(l) < B(r))
+                @test (l ≤ r) === (B(l) ≤ B(r))
+            end
+        end
+    end
+    @testset "`typemin`, `typemax`" begin
+        @test typemin(B) === zero(B)
+        @test typemin(B(1)) === zero(B)
+        @test typemax(B) === one(B)
+        @test typemax(B(1)) === one(B)
+    end
 end
 
 using Aqua: Aqua
