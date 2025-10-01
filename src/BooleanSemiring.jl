@@ -25,4 +25,13 @@ module BooleanSemiring
     function Base.:(*)(l::B, r::B)
         B(l.b & r.b)
     end
+    function Base.:(<)(l::B, r::B)
+        l.b < r.b
+    end
+    function Base.typemin(::Type{B})
+        zero(B)
+    end
+    function Base.typemax(::Type{B})
+        one(B)
+    end
 end
