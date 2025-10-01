@@ -37,7 +37,7 @@ B(1)
 
 ## An application: represent a relation with a logical array
 
-A logical array represents a mathematical relation. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Furthermore, then:
+A logical array represents a mathematical relation. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Then:
 
 * matrix addition (`X + Y`) corresponds to relation union
 
