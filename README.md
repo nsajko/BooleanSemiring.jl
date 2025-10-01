@@ -11,17 +11,19 @@ The Boolean semiring, also known as the two-element Boolean algebra.
 
 The only public binding is the Boolean semiring type, `B`. It is different from `Bool` in that `one(B) + one(B)` equals one instead of two.
 
-An application: representing a mathematical relation with a logical array. Specifically, an `AbstractMatrix{B}` represents a binary relation. Furthermore, then:
+An application: representing a mathematical relation with a logical array. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Furthermore, then:
 
-* matrix addition corresponds to relation union
+* matrix addition (`X + Y`) corresponds to relation union
 
-* pointwise multiplication of matrices corresponds to relation intersection
+* pointwise multiplication (`X .* Y`) of matrices corresponds to relation intersection
 
-* matrix multiplication corresponds to relation composition
+* matrix multiplication (`X * Y`) corresponds to relation composition
 
-* matrix adjoint results in the converse relation
+* matrix transpose (`transpose(X)`) or adjoint (`adjoint(X)` or `X'`) results in the converse relation
 
-* pointwise negation results in the complementary relation
+* pointwise negation (`(!).(X)`) results in the complementary relation
+
+* pointwise partial order (`all(splat(≤), zip(X, Y))`) corresponds to the subset/inclusion predicate
 
 ## Usage example
 
