@@ -2,7 +2,11 @@ module BooleanSemiring
     """
         B
 
-    The two-element Boolean algebra.
+    The Boolean semiring, also known as the two-element Boolean algebra.
+
+    Subtypes `Integer`.
+
+    Different from `Bool` in that `one(B) + one(B)` equals one instead of two.
     """
     struct B <: Integer
         b::Bool
