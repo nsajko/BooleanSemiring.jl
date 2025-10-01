@@ -57,6 +57,10 @@ using Test
         @test typemax(B) === one(B)
         @test typemax(B(1)) === one(B)
     end
+    @testset "negate" begin
+        @test B(0) === !B(1)
+        @test B(1) === !B(0)
+    end
     @testset "`show`" begin
         @test "B(0)" == repr(B(0))
         @test "B(1)" == repr(B(1))
