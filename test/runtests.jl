@@ -57,6 +57,10 @@ using Test
         @test typemax(B) === one(B)
         @test typemax(B(1)) === one(B)
     end
+    @testset "`show`" begin
+        @test "B(0)" == repr(B(0))
+        @test "B(1)" == repr(B(1))
+    end
 end
 
 using Aqua: Aqua
