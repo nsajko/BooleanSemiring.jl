@@ -11,20 +11,6 @@ The Boolean semiring, also known as the two-element Boolean algebra.
 
 The only public binding is the Boolean semiring type, `B`. It is different from `Bool` in that `one(B) + one(B)` equals one instead of two.
 
-An application: representing a mathematical relation with a logical array. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Furthermore, then:
-
-* matrix addition (`X + Y`) corresponds to relation union
-
-* pointwise multiplication (`X .* Y`) of matrices corresponds to relation intersection
-
-* matrix multiplication (`X * Y`) corresponds to relation composition
-
-* matrix transpose (`transpose(X)`) or adjoint (`adjoint(X)` or `X'`) results in the converse relation
-
-* pointwise negation (`(!).(X)`) results in the complementary relation
-
-* pointwise partial order (`all(splat(≤), zip(X, Y))`) corresponds to the subset/inclusion predicate
-
 ## Usage example
 
 ```julia-repl
@@ -48,3 +34,19 @@ B(0)
 julia> !B(0)
 B(1)
 ```
+
+## An application: represent a relation with a logical array
+
+A logical array represents a mathematical relation. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Then:
+
+* matrix addition (`X + Y`) corresponds to relation union
+
+* pointwise multiplication (`X .* Y`) of matrices corresponds to relation intersection
+
+* matrix multiplication (`X * Y`) corresponds to relation composition
+
+* matrix transpose (`transpose(X)`) or adjoint (`adjoint(X)` or `X'`) results in the converse relation
+
+* pointwise negation (`(!).(X)`) results in the complementary relation
+
+* pointwise partial order (`all(splat(≤), zip(X, Y))`) corresponds to the subset/inclusion predicate
