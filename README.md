@@ -9,35 +9,35 @@
 
 A software package for the Julia programming language implementing the simplest non-trivial Boolean algebra, the two-element Boolean algebra.
 
-The only public binding is the type, `B`. It is different from `Bool` in that `one(B) + one(B)` equals one instead of two.
+The only public binding is the type, `Boole`. It is different from `Bool` in that `one(Boole) + one(Boole)` equals one instead of two.
 
 ## Usage example
 
 ```julia-repl
-julia> using TwoElementBooleanAlgebra: B
+julia> using TwoElementBooleanAlgebra
 
-julia> B(0)
-B(0)
+julia> Boole(0)
+Boole(0)
 
-julia> B(0) + B(0)
-B(0)
+julia> Boole(0) + Boole(0)
+Boole(0)
 
-julia> B(0) + B(1)
-B(1)
+julia> Boole(0) + Boole(1)
+Boole(1)
 
-julia> B(1) + B(1)
-B(1)
+julia> Boole(1) + Boole(1)
+Boole(1)
 
-julia> B(0) * B(1)
-B(0)
+julia> Boole(0) * Boole(1)
+Boole(0)
 
-julia> !B(0)
-B(1)
+julia> !Boole(0)
+Boole(1)
 ```
 
 ## An application: represent a relation with a logical array
 
-A logical array represents a mathematical relation. Specifically, an `X::AbstractMatrix{B}` represents a binary relation. Then:
+A logical array represents a mathematical relation. Specifically, an `X::AbstractMatrix{Boole}` represents a binary relation. Then:
 
 * matrix addition (`X + Y`) corresponds to relation union
 
