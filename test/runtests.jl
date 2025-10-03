@@ -1,35 +1,34 @@
 using TwoElementBooleanAlgebra
-using TwoElementBooleanAlgebra: B
 using Test
 
 @testset "TwoElementBooleanAlgebra.jl" begin
     @testset "construction" begin
-        @test B(0) === B(false)
-        @test B(1) === B(true)
+        @test Boole(0) === Boole(false)
+        @test Boole(1) === Boole(true)
     end
     @testset "conversion to `Base` types" begin
         for x ∈ 0:1
             for typ ∈ (Bool, Int)
-                @test typ(x)::typ === typ(B(typ(x)::typ)::B)
-                @test typ(x)::typ === convert(typ, B(typ(x)::typ)::B)
+                @test typ(x)::typ === typ(Boole(typ(x)::typ)::Boole)
+                @test typ(x)::typ === convert(typ, Boole(typ(x)::typ)::Boole)
             end
         end
     end
     @testset "`zero`, `one`" begin
-        @test zero(B) === B(0)
-        @test one(B) === B(1)
-        @test zero(B(1)) === B(0)
-        @test one(B(1)) === B(1)
+        @test zero(Boole) === Boole(0)
+        @test one(Boole) === Boole(1)
+        @test zero(Boole(1)) === Boole(0)
+        @test one(Boole(1)) === Boole(1)
     end
     @testset "`iszero``, `isone`" begin
-        @test iszero(B(0))
-        @test isone(B(1))
+        @test iszero(Boole(0))
+        @test isone(Boole(1))
     end
     @testset "matrix multiplication" begin
         @testset "2x2" begin
-            mat_one = [B(1) B(0); B(0) B(1)]
-            mat_zero = [B(0) B(0); B(0) B(0)]
-            enumer = (B(0), B(1))
+            mat_one = [Boole(1) Boole(0); Boole(0) Boole(1)]
+            mat_zero = [Boole(0) Boole(0); Boole(0) Boole(0)]
+            enumer = (Boole(0), Boole(1))
             for (b11, b12, b21, b22) ∈ Iterators.product(enumer, enumer, enumer, enumer)
                 mat = [b11 b12; b21 b22]
                 @test mat_zero == mat * mat_zero
@@ -46,24 +45,24 @@ using Test
     @testset "order" begin
         for l ∈ 0:1
             for r ∈ 0:1
-                @test (l < r) === (B(l) < B(r))
-                @test (l ≤ r) === (B(l) ≤ B(r))
+                @test (l < r) === (Boole(l) < Boole(r))
+                @test (l ≤ r) === (Boole(l) ≤ Boole(r))
             end
         end
     end
     @testset "`typemin`, `typemax`" begin
-        @test typemin(B) === zero(B)
-        @test typemin(B(1)) === zero(B)
-        @test typemax(B) === one(B)
-        @test typemax(B(1)) === one(B)
+        @test typemin(Boole) === zero(Boole)
+        @test typemin(Boole(1)) === zero(Boole)
+        @test typemax(Boole) === one(Boole)
+        @test typemax(Boole(1)) === one(Boole)
     end
     @testset "negate" begin
-        @test B(0) === !B(1)
-        @test B(1) === !B(0)
+        @test Boole(0) === !Boole(1)
+        @test Boole(1) === !Boole(0)
     end
     @testset "`show`" begin
-        @test "B(0)" == repr(B(0))
-        @test "B(1)" == repr(B(1))
+        @test "Boole(0)" == repr(Boole(0))
+        @test "Boole(1)" == repr(Boole(1))
     end
 end
 

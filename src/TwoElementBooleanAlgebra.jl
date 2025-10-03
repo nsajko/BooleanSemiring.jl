@@ -1,48 +1,49 @@
 module TwoElementBooleanAlgebra
+    export Boole
     """
-        B
+        Boole
 
     Simplest non-trivial Boolean algebra, the two-element Boolean algebra.
 
     Subtypes `Integer`.
 
-    Different from `Bool` in that `one(B) + one(B)` equals one instead of two.
+    Different from `Bool` in that `one(Boole) + one(Boole)` equals one instead of two.
     """
-    struct B <: Integer
+    struct Boole <: Integer
         b::Bool
-        function B(b::Bool)
+        function Boole(b::Bool)
             new(b)
         end
     end
-    function B(b::Int)
-        B(Bool(b))
+    function Boole(b::Int)
+        Boole(Bool(b))
     end
-    function Base.Bool(b::B)
+    function Base.Bool(b::Boole)
         b.b
     end
-    function Base.Int(b::B)
+    function Base.Int(b::Boole)
         Int(Bool(b))
     end
-    function Base.:(+)(l::B, r::B)
-        B(l.b | r.b)
+    function Base.:(+)(l::Boole, r::Boole)
+        Boole(l.b | r.b)
     end
-    function Base.:(*)(l::B, r::B)
-        B(l.b & r.b)
+    function Base.:(*)(l::Boole, r::Boole)
+        Boole(l.b & r.b)
     end
-    function Base.:(<)(l::B, r::B)
+    function Base.:(<)(l::Boole, r::Boole)
         l.b < r.b
     end
-    function Base.typemin(::Type{B})
-        zero(B)
+    function Base.typemin(::Type{Boole})
+        zero(Boole)
     end
-    function Base.typemax(::Type{B})
-        one(B)
+    function Base.typemax(::Type{Boole})
+        one(Boole)
     end
-    function Base.:(!)(b::B)
-        B(!(b.b))
+    function Base.:(!)(b::Boole)
+        Boole(!(b.b))
     end
-    function Base.show(io::IO, b::B)
-        show(io, B)
+    function Base.show(io::IO, b::Boole)
+        show(io, Boole)
         print(io, '(')
         show(io, Int(b))
         print(io, ')')
