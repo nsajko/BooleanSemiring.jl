@@ -1,8 +1,8 @@
-module BooleanSemiring
+module TwoElementBooleanAlgebra
     """
         B
 
-    The Boolean semiring, also known as the two-element Boolean algebra.
+    Simplest non-trivial Boolean algebra, the two-element Boolean algebra.
 
     Subtypes `Integer`.
 
