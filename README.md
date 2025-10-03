@@ -1,20 +1,20 @@
-# BooleanSemiring
+# TwoElementBooleanAlgebra
 
-[![Build Status](https://github.com/nsajko/BooleanSemiring.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/nsajko/BooleanSemiring.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Package version](https://juliahub.com/docs/General/BooleanSemiring/stable/version.svg)](https://juliahub.com/ui/Packages/General/BooleanSemiring)
-[![Package dependencies](https://juliahub.com/docs/General/BooleanSemiring/stable/deps.svg)](https://juliahub.com/ui/Packages/General/BooleanSemiring?t=2)
-[![Coverage](https://codecov.io/gh/nsajko/BooleanSemiring.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/nsajko/BooleanSemiring.jl)
-[![PkgEval](https://JuliaCI.github.io/NanosoldierReports/pkgeval_badges/B/BooleanSemiring.svg)](https://JuliaCI.github.io/NanosoldierReports/pkgeval_badges/B/BooleanSemiring.html)
+[![Build Status](https://github.com/nsajko/TwoElementBooleanAlgebra.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/nsajko/TwoElementBooleanAlgebra.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Package version](https://juliahub.com/docs/General/TwoElementBooleanAlgebra/stable/version.svg)](https://juliahub.com/ui/Packages/General/TwoElementBooleanAlgebra)
+[![Package dependencies](https://juliahub.com/docs/General/TwoElementBooleanAlgebra/stable/deps.svg)](https://juliahub.com/ui/Packages/General/TwoElementBooleanAlgebra?t=2)
+[![Coverage](https://codecov.io/gh/nsajko/TwoElementBooleanAlgebra.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/nsajko/TwoElementBooleanAlgebra.jl)
+[![PkgEval](https://JuliaCI.github.io/NanosoldierReports/pkgeval_badges/B/TwoElementBooleanAlgebra.svg)](https://JuliaCI.github.io/NanosoldierReports/pkgeval_badges/B/TwoElementBooleanAlgebra.html)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
-The Boolean semiring, also known as the two-element Boolean algebra.
+A software package for the Julia programming language implementing the simplest non-trivial Boolean algebra, the two-element Boolean algebra.
 
-The only public binding is the Boolean semiring type, `B`. It is different from `Bool` in that `one(B) + one(B)` equals one instead of two.
+The only public binding is the type, `B`. It is different from `Bool` in that `one(B) + one(B)` equals one instead of two.
 
 ## Usage example
 
 ```julia-repl
-julia> using BooleanSemiring: B
+julia> using TwoElementBooleanAlgebra: B
 
 julia> B(0)
 B(0)

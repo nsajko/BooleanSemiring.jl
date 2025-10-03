@@ -1,8 +1,8 @@
-using BooleanSemiring
-using BooleanSemiring: B
+using TwoElementBooleanAlgebra
+using TwoElementBooleanAlgebra: B
 using Test
 
-@testset "BooleanSemiring.jl" begin
+@testset "TwoElementBooleanAlgebra.jl" begin
     @testset "construction" begin
         @test B(0) === B(false)
         @test B(1) === B(true)
@@ -70,5 +70,5 @@ end
 using Aqua: Aqua
 
 @testset "Code quality (Aqua.jl)" begin
-    Aqua.test_all(BooleanSemiring)
+    Aqua.test_all(TwoElementBooleanAlgebra)
 end
