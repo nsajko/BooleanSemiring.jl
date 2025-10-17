@@ -64,6 +64,9 @@ using Test
         @test "Boole(0)" == repr(Boole(0))
         @test "Boole(1)" == repr(Boole(1))
     end
+    @testset "promotion" begin
+        @test (1, 1) === promote(Boole(1), 1)
+    end
 end
 
 using Aqua: Aqua

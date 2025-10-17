@@ -48,4 +48,10 @@ module TwoElementBooleanAlgebra
         show(io, Int(b))
         print(io, ')')
     end
+    function Base.promote_rule(::Type{Boole}, ::Type{Int})
+        Int
+    end
+    function Base.promote_rule(::Type{Int}, ::Type{Boole})
+        Int
+    end
 end
